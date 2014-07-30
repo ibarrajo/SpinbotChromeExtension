@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "spinbot",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "This Google Chrome extension allows any user to automate content creation with a few mouse clicks",
+    "description": "The description of the application"
+  }
+}
