@@ -1,11 +1,11 @@
 'use strict';
 
 chrome.runtime.onInstalled.addListener(function (details) {
-    console.log('previousVersion', details.previousVersion);
+  console.log('previousVersion', details.previousVersion);
 });
 //
 chrome.tabs.onUpdated.addListener(function (tabId) {
-    chrome.pageAction.show(tabId);
+  chrome.pageAction.show(tabId);
 });
 
 // Copyright (c) 2012 The Chromium Authors. All rights reserved.
@@ -29,7 +29,7 @@ function spinbotRequest(options, callback, text) {
   xmlhttp = new XMLHttpRequest();
 
   xmlhttp.onreadystatechange = function() {
-    if (xmlhttp.readyState == 4) {
+    if (xmlhttp.readyState === 4) {
       callback(xmlhttp.responseText);
     }
   };
@@ -68,7 +68,7 @@ function copyTextToClipboard(text) {
 function onClickHandler(info, tab) {
   copyTextToClipboard(info.selectionText);
   console.log(info.selectionText);
-};
+}
 
 chrome.contextMenus.onClicked.addListener(onClickHandler);
 
