@@ -46,6 +46,11 @@ function spinbotRequest(options, callback, text) {
   xmlhttp.send(text);
 }
 
+function getAvailableSpins() {
+  spinbotRequest({action: 'getavailablespins'}, function(res) {
+    return
+  });
+}
 
 function spinBotThis(text) {
   spinbotRequest({action: 'getavailablespins'}, function(res) {

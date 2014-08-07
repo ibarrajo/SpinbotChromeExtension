@@ -1,5 +1,6 @@
 'use strict';
 
+var bkg = chrome.extension.getBackgroundPage();
 // Restores the settings stored in chrome.storage.
 function restoreOptions() {
   chrome.storage.sync.get({
@@ -86,26 +87,71 @@ function getAccountDetails() {
     }
   };
   xhr.open('GET', 'https://spinbot.com/Manage', false);
+  xhr.setRequestHeader('X-Requested-With', 'spinbot-chrome-ext');
   xhr.send();
   return accountDetails;
 }
 
+// returns a boolean if successfully logged in.
 function loadAccountDetails() {
-  //console.log();
   var details = getAccountDetails();
   if (details !== false) {
     saveAccountSettings(details);
+    return true;
   } else {
-    console.log('Please log in!');
+    return false;
   }
-  //document.getElementById('page_frame').innerHTML = spinbotInfo.innerHTML;
 }
 
-function spinit(event) {
-  document.getElementsByClassName('card')[0].classList.toggle('flipped');
+function showTextArea(side) {
+  switch (side) {
+    case 'input':
+      document.getElementsByClassName('card')[0].classList.remove('flipped');
+      break;
+    case 'output':
+      document.getElementsByClassName('card')[0].classList.add('flipped');
+      break;
+    default:
+      document.getElementsByClassName('card')[0].classList.toggle('flipped');
+      break;
+  }
+}
+
+function spinit() {
+  // toggle the animation
+  showTextArea();
+}
+
+function doSetup() {
+  console.log('doSetup()');
+}
+
+function getMoreSpins() {
+  console.log('getMoreSpins()');
+}
+
+function init() {
+  // check if logged in, of if the api key is set
+  var isAuthenticated = loadAccountDetails();
+  if (isAuthenticated) {
+    // if the number of available spins is ok
+
+    var spins = 1;
+    if (spins > 0) {
+
+    } else {
+      // get more spins!
+      getMoreSpins();
+    }
+  } else {
+    // log in first, or set the api key.
+    doSetup();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);
 document.getElementById('spinit').addEventListener('click', spinit);
 document.getElementById('get_api_key').addEventListener('click', loadAccountDetails);
+
+init();
