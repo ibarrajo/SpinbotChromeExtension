@@ -1,5 +1,21 @@
 'use strict';
 
+// Restores the settings stored in chrome.storage.
+function restoreOptions() {
+  chrome.storage.sync.get({
+    API_KEY: '',
+    emailAddress: '',
+    remainingSpins: '',
+    apiKey: ''
+  }, function(items) {
+    document.getElementById('api_key').value = items.API_KEY;
+    document.getElementById('email_address').innerText = items.emailAddress;
+    document.getElementById('remaining_spins').innerText = items.remainingSpins;
+    //document.getElementById('api_key').value = items.API_KEY;
+  });
+}
+
+
 // Saves options to chrome.storage
 function saveOptions() {
   var API_KEY = document.getElementById('api_key').value;
@@ -17,7 +33,7 @@ function saveOptions() {
 
 
 function saveAccountSettings(settings) {
-  if (settings === false) {return false};
+  if (settings === false) {return false;}
   // {emailAddress:'', remainingSpins:'', apiKey:''}
   chrome.storage.sync.set(settings, function() {
     // reload the options
@@ -31,20 +47,6 @@ function saveAccountSettings(settings) {
   });
 }
 
-// Restores the settings stored in chrome.storage.
-function restoreOptions() {
-  chrome.storage.sync.get({
-    API_KEY: '',
-    emailAddress: '',
-    remainingSpins: '',
-    apiKey: ''
-  }, function(items) {
-    document.getElementById('api_key').value = items.API_KEY;
-    document.getElementById('email_address').innerText = items.emailAddress;
-    document.getElementById('remaining_spins').innerText = items.remainingSpins;
-    //document.getElementById('api_key').value = items.API_KEY;
-  });
-}
 
 /**
 * returns false if not logged in,
@@ -94,12 +96,16 @@ function loadAccountDetails() {
   if (details !== false) {
     saveAccountSettings(details);
   } else {
-    console.log("Please log in!");
+    console.log('Please log in!');
   }
   //document.getElementById('page_frame').innerHTML = spinbotInfo.innerHTML;
 }
 
+function spinit(event) {
+  document.getElementsByClassName('card')[0].classList.toggle('flipped');
+}
+
 document.addEventListener('DOMContentLoaded', restoreOptions);
 document.getElementById('save').addEventListener('click', saveOptions);
-
+document.getElementById('spinit').addEventListener('click', spinit);
 document.getElementById('get_api_key').addEventListener('click', loadAccountDetails);

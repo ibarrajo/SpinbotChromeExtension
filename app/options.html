@@ -25,7 +25,12 @@
         <div class="pure-u-1">
           <div class="pure-form">
             <fieldset class="pure-group">
-              <textarea rows="4" class="pure-input-1" placeholder="Paste your text here."></textarea>
+              <div class="flip">
+                <div class="card">
+                  <textarea id="txt_input" rows="4" class="pure-input-1 face front" placeholder="Paste your text here."></textarea>
+                  <textarea id="txt_output" rows="4" class="pure-input-1 face back" placeholder="Just a sec.."></textarea>
+                </div>
+              </div>
               <button id="spinit" class="pure-input-1 pure-button pure-button-primary">Spin it!</button>
             </fieldset>
 
