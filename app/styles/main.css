@@ -1,7 +1,66 @@
+.spinbot-logo {
+  color: green;
+  font-family: Rockwell, Consolas, 'Courier New', Courier, monospace;
+  font-size: 2.8em;
+}
+
 .center {
   text-align: center;
 }
 
+.monospace {
+    font-family: Consolas !important;
+}
+
+label {
+  font-family: proxima-nova, sans-serif;
+}
+
+/* Colors thanks to http://sassme.arc90.com/*/
+.btn-success {
+  background: #1CB841;
+  box-shadow: 0 5px 0 #158930;
+}
+.btn-success:active {
+  box-shadow: 0 2px 0 #158930;
+}
+
+.btn-primary {
+  background: #0087cc;
+  box-shadow: 0 5px 0 #006599;
+}
+.btn-primary:active {
+  box-shadow: 0 2px 0 #006599;
+}
+
+.btn-default {
+  background: #c2c2c2;
+  box-shadow: 0 5px 0 #a8a8a8;
+}
+.btn-default:active {
+  box-shadow: 0 2px 0 #a8a8a8;
+}
+
+
+button {
+  border: 0;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  color: #fff;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  outline: 0;
+  padding: 12px 20px;
+  transition: all .1s linear;
+}
+
+button:active {
+  /**box-shadow: 0 2px 0 #006599;**/
+  transform: translateY(3px);
+}
+
+/** Spin animations **/
 .flip {
    -webkit-transform: translate3d(0, 0, 0);
            transform: translate3d(0, 0, 0);
@@ -16,14 +75,12 @@
 }
 @-webkit-keyframes flashflip {
   0% {
-      opacity:0;
       -webkit-transform: rotatey(-180deg);
               transform: rotatey(-180deg);
     }
   100% {
-      opacity:1;
-      -webkit-transform: rotatey(+180deg);
-              transform: rotatey(+180deg);
+      -webkit-transform: rotatey(-180deg);
+              transform: rotatey(-180deg);
     }
 }
 .flip .card {
@@ -33,8 +90,8 @@
           transform-style: preserve-3d;
   -webkit-transition: 2s;
           transition: 2s;
-  -webkit-animation: flashflip 0.05s;
-          animation: flashflip 0.05s;
+  -webkit-animation: flashflip 0.5s;
+          animation: flashflip 0.5s;
 }
 .flip .card .face {
   width: 100%;

@@ -14,7 +14,7 @@
       <div class="pure-g">
         <div class="pure-u-1">
           <div class="pure-u-2-5">
-            <a style="color: green; font-family: Rockwell, Consolas, 'Courier New', Courier, monospace; font-size: 2.8em;" href="#" title="Spinbot">Spinbot</a>
+            <a class="spinbot-logo" href="https://spinbot.com" target="_blank" title="Spinbot">Spinbot</a>
           </div>
           <div class="pure-u-2-5">
             <div class="pure-u-1"><span id="email_address"></span> <strong><span id="remaining_spins"></span></strong> spins left.</div>
@@ -31,23 +31,25 @@
                   <textarea id="txt_output" rows="4" class="pure-input-1 face back" placeholder="Just a sec.."></textarea>
                 </div>
               </div>
-              <button id="spinit" class="pure-input-1 pure-button pure-button-primary">Spin it!</button>
+              <button id="spinit" class="pure-input-1 btn-primary">Spin it!</button>
             </fieldset>
 
             <fieldset class="pure-group">
-
-              <label for="api_key">Your SpinBot API Key</label>
-              <input class="pure-input-1" id="api_key" type="text" placeholder="API Key">
-
-              <div class="center">
-                <button id="save" class="pure-input-1-4 pure-button">Save</button>
-                <button id="get_api_key" class="pure-input-1-4 pure-button">Load Account Info.</button>
-                <button type="submit" class="pure-button pure-input-1-4">Sign in</button>
-              </div>
+              <input class="pure-input-1 center monospace" id="api_key" type="text" placeholder="API Key">
             </fieldset>
+
+            <fieldset class="pure-group">
+              <button class="pure-input-1 btn-success">Set up your API key.</button>
+            </fieldset>
+
+            <div class="center">
+              <button id="save" class="pure-input-1-4 btn-default">Save</button>
+              <button id="get_api_key" class="pure-input-2-4 btn-default">Load Account Info.</button>
+              <button type="submit" class="pure-input-1-4 btn-default">Sign in</button>
+            </div>
           </div>
         </div>
-
+        <hr>
         <div class="pure-u-1"><small><a href="http://elninja.com" target="_blank">elninja.com</a></small></div>
       </div>
 
