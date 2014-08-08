@@ -34,7 +34,10 @@ label {
 }
 
 .btn-default {
-  background: #c2c2c2;
+  color: #000;
+  border: solid #a8a8a8;
+  border-width: 1px 1px;
+  background: #fff;
   box-shadow: 0 5px 0 #a8a8a8;
 }
 .btn-default:active {
